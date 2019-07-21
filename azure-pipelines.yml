@@ -7,8 +7,14 @@ pool:
 
 steps:
 
-- script: swift build
-  displayName: 'Builds framework'
+- script: swift package generate-xcodeproj
+  displayName: 'Create XcodeProject file'
 
-- script: swift test
-  displayName: 'Run unit tests'
+- script: xcodebuild -scheme URLBuilder-Package clean build test | xcpretty -r junit
+  displayName: 'Run tests'
+
+- task: PublishTestResults@2
+  displayName: 'Publish test results'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '$(System.DefaultWorkingDirectory)/build/reports/junit.xml'
