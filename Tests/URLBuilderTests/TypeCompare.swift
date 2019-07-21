@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class TypeCompare<Left, Right> {
+struct TypeCompare<Left, Right> {
     static var bool: Bool {
         false
     }
