@@ -7,24 +7,28 @@
 
 import Foundation
 
-public struct Port: URLComponentProtocol {
+extension URLComponents {
     
-    // MARK: - Nested types
-    
-    public typealias RawValue = Int
-    
-    // MARK: - Public properties
-    
-    public let rawValue: Self.RawValue
-    
-    // MARK: - Internal constants
-    
-    internal static let type: URLComponentType = .port
-    
-    // MARK: - Initialization
-    
-    public init(rawValue: Self.RawValue) {
-        self.rawValue = rawValue
+    public struct Port: URLComponentProtocol {
+        
+        // MARK: - Nested types
+        
+        public typealias RawValue = Int
+        
+        // MARK: - Public properties
+        
+        public let rawValue: Self.RawValue
+        
+        // MARK: - Internal constants
+        
+        internal static let type: URLComponentType = .port
+        
+        // MARK: - Initialization
+        
+        public init(rawValue: Self.RawValue) {
+            self.rawValue = rawValue
+        }
+        
     }
     
 }

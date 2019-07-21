@@ -7,24 +7,28 @@
 
 import Foundation
 
-public struct Password: URLComponentProtocol {
+extension URLComponents {
     
-    // MARK: - Nested types
-    
-    public typealias RawValue = String
-    
-    // MARK: - Public properties
-    
-    public let rawValue: Self.RawValue
-    
-    // MARK: - Internal constants
-    
-    internal static let type: URLComponentType = .password
-    
-    // MARK: - Initialization
-    
-    public init(rawValue: Self.RawValue) {
-        self.rawValue = rawValue
+    public struct Password: URLComponentProtocol {
+        
+        // MARK: - Nested types
+        
+        public typealias RawValue = String
+        
+        // MARK: - Public properties
+        
+        public let rawValue: Self.RawValue
+        
+        // MARK: - Internal constants
+        
+        internal static let type: URLComponentType = .password
+        
+        // MARK: - Initialization
+        
+        public init(rawValue: Self.RawValue) {
+            self.rawValue = rawValue
+        }
+        
     }
     
 }
