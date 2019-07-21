@@ -17,7 +17,7 @@ extension URLComponents {
         
         // MARK: - Public properties
         
-        public let rawValue: Self.RawValue
+        public let rawValue: RawValue
         
         // MARK: - Internal constants
         
@@ -25,14 +25,14 @@ extension URLComponents {
         
         // MARK: - Initialization
         
-        public init(rawValue: Self.RawValue) {
+        public init(rawValue: RawValue) {
             self.rawValue = rawValue
         }
         
         // MARK: - Public methods
         
-        static func item(name: String, value: String?) -> Self {
-            return Self.init(rawValue: URLQueryItem(name: name, value: value))
+        static func item(name: String, value: String?) -> Query {
+            return Query(rawValue: URLQueryItem(name: name, value: value))
         }
         
     }

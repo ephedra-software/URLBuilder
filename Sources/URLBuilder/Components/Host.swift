@@ -17,7 +17,7 @@ extension URLComponents {
         
         // MARK: - Public properties
         
-        public let rawValue: Self.RawValue
+        public let rawValue: RawValue
         
         // MARK: - Internal constants
         
@@ -25,7 +25,7 @@ extension URLComponents {
         
         // MARK: - Initialization
         
-        public init(rawValue: Self.RawValue) {
+        public init(rawValue: RawValue) {
             self.rawValue = rawValue
         }
         

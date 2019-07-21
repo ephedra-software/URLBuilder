@@ -8,15 +8,11 @@
 import Foundation
 
 struct TypeCompare<Left, Right> {
-    static var bool: Bool {
-        false
-    }
+    static var bool: Bool { return false }
 
     private init() {}
 }
 
 extension TypeCompare where Left == Right {
-    static var bool: Bool {
-        true
-    }
+    static var bool: Bool { return true }
 }
