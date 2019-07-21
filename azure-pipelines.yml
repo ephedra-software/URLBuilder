@@ -7,11 +7,8 @@ pool:
 
 steps:
 
-- script: xcodebuild -scheme URLBuilder -sdk iphoneos -destination 'platform=iOS Simulator,name=iPhone 5s,OS=12.2' -configuration Debug CODE_SIGNING_ALLOWED=NO test | xcpretty -r junit
-  displayName: 'Run tests'
+- script: swift build
+  displayName: 'Builds framework'
 
-- task: PublishTestResults@2
-  displayName: 'Publish test results'
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '$(System.DefaultWorkingDirectory)/build/reports/junit.xml'
+- script: swift test
+  displayName: 'Run unit tests'
