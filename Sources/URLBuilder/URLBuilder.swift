@@ -54,11 +54,6 @@ extension URLBuilder: QueryFunctionality {
 // MARK: - Fragment functionality
 
 extension URLBuilder: FragmentFunctionality {
-    
-    public func fragment(_ fragment: URLComponents.Fragment) -> URLComponents {
-        self.fragment = fragment.rawValue
-        return self
-    }
 
 }
 
