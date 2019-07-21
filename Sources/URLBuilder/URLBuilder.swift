@@ -7,29 +7,7 @@
 
 import Foundation
 
-public class URLBuilder: URLBuilderProtocol {
-    
-    // MARK: - Private properties
-    
-    private var urlComponents: URLComponents = URLComponents()
-    
-    // MARK: - Public properties
-    
-    public var url: URL? {
-        return urlComponents.url
-    }
-    
-    public var string: String? {
-        return urlComponents.string
-    }
-    
-    // MARK: - Public methods
-    
-    public func url(relativeTo base: URL?) -> URL? {
-        return urlComponents.url
-    }
-    
-}
+public typealias URLBuilder = URLComponents
 
 // MARK: - Scheme functionality
 
@@ -77,6 +55,11 @@ extension URLBuilder: QueryFunctionality {
 
 extension URLBuilder: FragmentFunctionality {
     
+    public func fragment(_ fragment: URLComponents.Fragment) -> URLComponents {
+        self.fragment = fragment.rawValue
+        return self
+    }
+
 }
 
 // MARK: - Common functionality
