@@ -10,7 +10,7 @@ import Foundation
 public protocol FragmentFunctionality {
     
     //    func fragment(_ value: Fragment.RawValue) -> Self
-//    mutating func fragment(_ fragment: URLComponents.Fragment) -> Self
+//    func fragment(_ fragment: URLComponents.Fragment) -> Self
     //    func fragment(from url: URL?) -> Self
     //    func fragment(from urlComponents: URLComponents) -> Self
     

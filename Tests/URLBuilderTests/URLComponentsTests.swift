@@ -24,7 +24,7 @@ final class URLComponentsTests: XCTestCase {
         ("testFragmentCorrectly", testFragmentCorrectly)
     ]
     
-    // MARK: - Tests
+    // MARK: - Correctness tests
     
     func testSchemeCorrectly() {
         XCTAssertTrue(URLComponents.Scheme.type == .scheme,
