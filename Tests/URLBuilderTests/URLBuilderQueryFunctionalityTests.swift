@@ -7,9 +7,12 @@ final class URLBuilderQueryFunctionalityTests: XCTestCase {
     
     static var allTests = [
         ("testStaticAllocate", testStaticAllocate),
+        ("testUpdateByComponents", testUpdateByComponents),
+        ("testUpdateByPairs", testUpdateByPairs),
+        ("testUpdayeByURLQueueItems", testUpdayeByURLQueueItems),
         ("testUpdateByVariadicComponents", testUpdateByVariadicComponents),
-        ("testUpdateByVariadicPair", testUpdateByVariadicPair),
-        ("testUpdayeByVariadicURLQueueItem", testUpdayeByVariadicURLQueueItem),
+        ("testUpdateByVariadicPairs", testUpdateByVariadicPairs),
+        ("testUpdayeByVariadicURLQueueItems", testUpdayeByVariadicURLQueueItems),
         ("testUpdateByURL", testUpdateByURL),
         ("testUpdateByURLComponents", testUpdateByURLComponents)
     ]
@@ -20,15 +23,27 @@ final class URLBuilderQueryFunctionalityTests: XCTestCase {
         XCTFail("No implementation")
     }
     
+    func testUpdateByComponents() {
+        XCTFail("No implementation")
+    }
+    
+    func testUpdateByPairs() {
+        XCTFail("No implementation")
+    }
+    
+    func testUpdayeByURLQueueItems() {
+        XCTFail("No implementation")
+    }
+    
     func testUpdateByVariadicComponents() {
         XCTFail("No implementation")
     }
     
-    func testUpdateByVariadicPair() {
+    func testUpdateByVariadicPairs() {
         XCTFail("No implementation")
     }
     
-    func testUpdayeByVariadicURLQueueItem() {
+    func testUpdayeByVariadicURLQueueItems() {
         XCTFail("No implementation")
     }
     
