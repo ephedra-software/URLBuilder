@@ -7,8 +7,9 @@ final class URLBuilderQueryFunctionalityTests: XCTestCase {
     
     static var allTests = [
         ("testStaticAllocate", testStaticAllocate),
-        ("testUpdateByComponent", testUpdateByComponent),
-        ("testUpdateByDefaultValue", testUpdateByDefaultValue),
+        ("testUpdateByVariadicComponents", testUpdateByVariadicComponents),
+        ("testUpdateByVariadicPair", testUpdateByVariadicPair),
+        ("testUpdayeByVariadicURLQueueItem", testUpdayeByVariadicURLQueueItem),
         ("testUpdateByURL", testUpdateByURL),
         ("testUpdateByURLComponents", testUpdateByURLComponents)
     ]
