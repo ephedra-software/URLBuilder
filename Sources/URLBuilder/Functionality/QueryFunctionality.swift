@@ -11,7 +11,6 @@ public protocol QueryFunctionality {
     
     //    func query(items: (name: String, value: String?)...) -> Self
     //    func query(items: URLQueryItem...) -> Self
-    //    // TODO: - проверить построку по Array
     //    func query(_ query: Query) -> Self
     //    func query(from url: URL?) -> Self
     //    func query(from urlComponents: URLComponents) -> Self

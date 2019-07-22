@@ -19,11 +19,15 @@ final class URLBuilderQueryFunctionalityTests: XCTestCase {
         XCTFail("No implementation")
     }
     
-    func testUpdateByComponent() {
+    func testUpdateByVariadicComponents() {
         XCTFail("No implementation")
     }
     
-    func testUpdateByDefaultValue() {
+    func testUpdateByVariadicPair() {
+        XCTFail("No implementation")
+    }
+    
+    func testUpdayeByVariadicURLQueueItem() {
         XCTFail("No implementation")
     }
     
@@ -34,5 +38,5 @@ final class URLBuilderQueryFunctionalityTests: XCTestCase {
     func testUpdateByURLComponents() {
         XCTFail("No implementation")
     }
-    
+
 }
