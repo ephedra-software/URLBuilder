@@ -41,6 +41,42 @@ public class URLBuilder: URLBuilderProtocol {
 
 extension URLBuilder: SchemeFunctionality {
     
+    public static func scheme(_ scheme: URLComponents.Scheme) -> URLBuilder {
+        return URLBuilder().scheme(scheme)
+    }
+    
+    public static func scheme(_ value: URLComponents.Scheme.RawValue) -> URLBuilder {
+        return URLBuilder().scheme(value)
+    }
+    
+    public static func scheme(from url: URL?) -> URLBuilder {
+        return URLBuilder().scheme(from: url)
+    }
+    
+    public static func scheme(from urlComponents: URLComponents) -> URLBuilder {
+        return URLBuilder().scheme(from: urlComponents)
+    }
+    
+    public func scheme(_ scheme: URLComponents.Scheme) -> URLBuilder {
+        urlComponents.scheme = scheme.rawValue
+        return self
+    }
+    
+    public func scheme(_ value: URLComponents.Scheme.RawValue) -> URLBuilder {
+        urlComponents.scheme = value
+        return self
+    }
+    
+    public func scheme(from url: URL?) -> URLBuilder {
+        urlComponents.scheme = url?.scheme
+        return self
+    }
+    
+    public func scheme(from urlComponents: URLComponents) -> URLBuilder {
+        self.urlComponents.scheme = urlComponents.scheme
+        return self
+    }
+
 }
 
 // MARK: - User functionality
