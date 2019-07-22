@@ -3,14 +3,6 @@ import XCTest
 
 final class URLComponentsTests: XCTestCase {
     
-    // MARK: - Nested types
-    
-    enum Constants {
-        static let testString = "Test"
-        static let testInt = 8181
-        static let testQueryItem = URLQueryItem(name: "test", value: nil)
-    }
-    
     // MARK: - Properties
     
     static var allTests = [
@@ -24,7 +16,7 @@ final class URLComponentsTests: XCTestCase {
         ("testFragmentCorrectly", testFragmentCorrectly)
     ]
     
-    // MARK: - Correctness tests
+    // MARK: - Tests
     
     func testSchemeCorrectly() {
         XCTAssertTrue(URLComponents.Scheme.type == .scheme,
@@ -114,38 +106,4 @@ final class URLComponentsTests: XCTestCase {
                        "Something is wrong with extensibility URLComponents.Fragment")
     }
     
-}
-
-// MARK: - Extensions for tests
-
-extension URLComponents.Scheme {
-    static let test = URLComponents.Scheme(rawValue: URLComponentsTests.Constants.testString)
-}
-
-extension URLComponents.User {
-    static let test = URLComponents.User(rawValue: URLComponentsTests.Constants.testString)
-}
-
-extension URLComponents.Password {
-    static let test = URLComponents.Password(rawValue: URLComponentsTests.Constants.testString)
-}
-
-extension URLComponents.Host {
-    static let test = URLComponents.Host(rawValue: URLComponentsTests.Constants.testString)
-}
-
-extension URLComponents.Port {
-    static let test = URLComponents.Port(rawValue: URLComponentsTests.Constants.testInt)
-}
-
-extension URLComponents.Path {
-    static let test = URLComponents.Path(rawValue: URLComponentsTests.Constants.testString)
-}
-
-extension URLComponents.Query {
-    static let test = URLComponents.Query(rawValue: URLComponentsTests.Constants.testQueryItem)
-}
-
-extension URLComponents.Fragment {
-    static let test = URLComponents.Fragment(rawValue: URLComponentsTests.Constants.testString)
 }

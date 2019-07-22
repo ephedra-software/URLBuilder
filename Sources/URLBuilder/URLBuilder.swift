@@ -89,9 +89,3 @@ extension URLBuilder: FragmentFunctionality {
 //    }
 
 }
-
-// MARK: - Common functionality
-
-extension URLBuilder: CommonFunctionality {
-    
-}
