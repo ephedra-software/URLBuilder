@@ -8,7 +8,7 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
     static var allTests = [
         ("testStaticAllocate", testStaticAllocate),
         ("testUpdateByComponent", testUpdateByComponent),
-        ("testUpdateByDefaultValue", testUpdateByDefaultValue),
+        ("testUpdateByCustomValue", testUpdateByCustomValue),
         ("testUpdateByURL", testUpdateByURL),
         ("testUpdateByURLComponents", testUpdateByURLComponents)
     ]
@@ -16,23 +16,82 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
     // MARK: - Tests
     
     func testStaticAllocate() {
-        XCTFail("No implementation")
+        XCTAssertTrue(
+            URLBuilder().user(.test) !== URLBuilder.user(.test),
+            "Something went wrong. Check the initialization in the URLBuilder by user component"
+        )
+        
+        XCTAssertTrue(
+            URLBuilder().user(custom: Constants.testString) !== URLBuilder.user(custom: Constants.testString),
+            "Something went wrong. Check the initialization in the URLBuilder by user raw value"
+        )
+        
+        XCTAssertTrue(
+            URLBuilder().user(from: Constants.testURL) !== URLBuilder.user(from: Constants.testURL),
+            "Something went wrong. Check the initialization in the URLBuilder by URL"
+        )
+        
+        XCTAssertTrue(
+            URLBuilder().user(from: Constants.testURLComponents) !== URLBuilder.user(from: Constants.testURLComponents),
+            "Something went wrong. Check the initialization in the URLBuilder by URLComponents"
+        )
     }
     
     func testUpdateByComponent() {
-        XCTFail("No implementation")
+        // given
+        let expectedURLString = "//" + URLComponents.User.test.rawValue! + "@"
+        
+        // when
+        let gotURLString = URLBuilder.user(.test).string
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
+        )
     }
     
-    func testUpdateByDefaultValue() {
-        XCTFail("No implementation")
+    func testUpdateByCustomValue() {
+        // given
+        let customValue = URLComponents.User.test.rawValue!
+        let expectedURLString = "//" + customValue + "@"
+        
+        // when
+        let gotURLString = URLBuilder.user(custom: customValue).string
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
+        )
     }
     
     func testUpdateByURL() {
-        XCTFail("No implementation")
+        // given
+        let expectedURLString = Constants.testURL?.user
+        
+        // when
+        let gotURLString = URLBuilder.user(from: Constants.testURL).url?.user
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+        )
     }
     
     func testUpdateByURLComponents() {
-        XCTFail("No implementation")
+        // given
+        let expectedURLString = Constants.testURLComponents?.user
+        
+        // when
+        let gotURLString = URLBuilder.user(from: Constants.testURLComponents).url?.user
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+        )
     }
     
 }

@@ -8,10 +8,15 @@
 import Foundation
 
 public protocol UserFunctionality {
-    
-    //    func user(_ user: User) -> Self
-    //    func user(_ value: User.RawValue) -> Self
-    //    func user(from url: URL?) -> Self
-    //    func user(from urlComponents: URLComponents) -> Self
-    
+
+    static func user(_ user: URLComponents.User) -> URLBuilder
+    static func user(custom value: URLComponents.User.RawValue) -> URLBuilder
+    static func user(from url: URL?) -> URLBuilder
+    static func user(from urlComponents: URLComponents?) -> URLBuilder
+
+    func user(_ user: URLComponents.User) -> URLBuilder
+    func user(custom value: URLComponents.User.RawValue) -> URLBuilder
+    func user(from url: URL?) -> URLBuilder
+    func user(from urlComponents: URLComponents?) -> URLBuilder
+
 }

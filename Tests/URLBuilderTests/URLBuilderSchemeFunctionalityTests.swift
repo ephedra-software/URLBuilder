@@ -8,7 +8,7 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
     static var allTests = [
         ("testStaticAllocate", testStaticAllocate),
         ("testUpdateByComponent", testUpdateByComponent),
-        ("testUpdateByDefaultValue", testUpdateByDefaultValue),
+        ("testUpdateByCustomValue", testUpdateByCustomValue),
         ("testUpdateByURL", testUpdateByURL),
         ("testUpdateByURLComponents", testUpdateByURLComponents)
     ]
@@ -22,7 +22,7 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
         )
         
         XCTAssertTrue(
-            URLBuilder().scheme(Constants.testString) !== URLBuilder.scheme(Constants.testString),
+            URLBuilder().scheme(custom: Constants.testString) !== URLBuilder.scheme(custom: Constants.testString),
             "Something went wrong. Check the initialization in the URLBuilder by scheme raw value"
         )
         
@@ -39,7 +39,7 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
     
     func testUpdateByComponent() {
         // given
-        let expectedURLString = URLComponents.Scheme.https.rawValue + ":"
+        let expectedURLString = URLComponents.Scheme.https.rawValue! + ":"
         
         // when
         let gotURLString = URLBuilder.scheme(.https).string
@@ -51,12 +51,12 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
         )
     }
     
-    func testUpdateByDefaultValue() {
+    func testUpdateByCustomValue() {
         // given
-        let expectedURLString = URLComponents.Scheme.https.rawValue + ":"
+        let expectedURLString = URLComponents.Scheme.https.rawValue! + ":"
         
         // when
-        let gotURLString = URLBuilder.scheme("https").string
+        let gotURLString = URLBuilder.scheme(custom: "https").string
         
         // then
         XCTAssertEqual(
@@ -81,7 +81,7 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
     
     func testUpdateByURLComponents() {
         // given
-        let expectedURLString = Constants.testURLComponents.scheme
+        let expectedURLString = Constants.testURLComponents?.scheme
         
         // when
         let gotURLString = URLBuilder.scheme(from: Constants.testURLComponents).url?.scheme
@@ -92,5 +92,5 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
             "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
         )
     }
-    
+
 }

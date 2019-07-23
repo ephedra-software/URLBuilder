@@ -45,15 +45,15 @@ extension URLBuilder: SchemeFunctionality {
         return URLBuilder().scheme(scheme)
     }
     
-    public static func scheme(_ value: URLComponents.Scheme.RawValue) -> URLBuilder {
-        return URLBuilder().scheme(value)
+    public static func scheme(custom value: URLComponents.Scheme.RawValue) -> URLBuilder {
+        return URLBuilder().scheme(custom: value)
     }
     
     public static func scheme(from url: URL?) -> URLBuilder {
         return URLBuilder().scheme(from: url)
     }
     
-    public static func scheme(from urlComponents: URLComponents) -> URLBuilder {
+    public static func scheme(from urlComponents: URLComponents?) -> URLBuilder {
         return URLBuilder().scheme(from: urlComponents)
     }
     
@@ -62,7 +62,7 @@ extension URLBuilder: SchemeFunctionality {
         return self
     }
     
-    public func scheme(_ value: URLComponents.Scheme.RawValue) -> URLBuilder {
+    public func scheme(custom value: URLComponents.Scheme.RawValue) -> URLBuilder {
         urlComponents.scheme = value
         return self
     }
@@ -72,8 +72,8 @@ extension URLBuilder: SchemeFunctionality {
         return self
     }
     
-    public func scheme(from urlComponents: URLComponents) -> URLBuilder {
-        self.urlComponents.scheme = urlComponents.scheme
+    public func scheme(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.scheme = urlComponents?.scheme
         return self
     }
 
@@ -82,6 +82,42 @@ extension URLBuilder: SchemeFunctionality {
 // MARK: - User functionality
 
 extension URLBuilder: UserFunctionality {
+    
+    public static func user(_ user: URLComponents.User) -> URLBuilder {
+        return URLBuilder().user(user)
+    }
+    
+    public static func user(custom value: URLComponents.User.RawValue) -> URLBuilder {
+        return URLBuilder().user(custom: value)
+    }
+    
+    public static func user(from url: URL?) -> URLBuilder {
+        return URLBuilder().user(from: url)
+    }
+    
+    public static func user(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().user(from: urlComponents)
+    }
+    
+    public func user(_ user: URLComponents.User) -> URLBuilder {
+        urlComponents.user = user.rawValue
+        return self
+    }
+    
+    public func user(custom value: URLComponents.User.RawValue) -> URLBuilder {
+        urlComponents.user = value
+        return self
+    }
+    
+    public func user(from url: URL?) -> URLBuilder {
+        urlComponents.user = url?.user
+        return self
+    }
+    
+    public func user(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.user = urlComponents?.user
+        return self
+    }
     
 }
 
