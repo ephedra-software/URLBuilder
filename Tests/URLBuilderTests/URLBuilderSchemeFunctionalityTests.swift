@@ -38,19 +38,59 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
     }
     
     func testUpdateByComponent() {
-        XCTFail("No implementation")
+        // given
+        let expectedURLString = URLComponents.Scheme.https.rawValue + ":"
+        
+        // when
+        let gotURLString = URLBuilder.scheme(.https).string
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
+        )
     }
     
     func testUpdateByDefaultValue() {
-        XCTFail("No implementation")
+        // given
+        let expectedURLString = URLComponents.Scheme.https.rawValue + ":"
+        
+        // when
+        let gotURLString = URLBuilder.scheme("https").string
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
+        )
     }
     
     func testUpdateByURL() {
-        XCTFail("No implementation")
+        // given
+        let expectedURLString = Constants.testURL?.scheme
+        
+        // when
+        let gotURLString = URLBuilder.scheme(from: Constants.testURL).url?.scheme
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+        )
     }
     
     func testUpdateByURLComponents() {
-        XCTFail("No implementation")
+        // given
+        let expectedURLString = Constants.testURLComponents.scheme
+        
+        // when
+        let gotURLString = URLBuilder.scheme(from: Constants.testURLComponents).url?.scheme
+        
+        // then
+        XCTAssertEqual(
+            gotURLString, expectedURLString,
+            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+        )
     }
     
 }
