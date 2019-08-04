@@ -45,10 +45,7 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.scheme(.https).string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByCustomValue() {
@@ -59,10 +56,7 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.scheme(custom: "https").string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByURL() {
@@ -73,10 +67,7 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
         let gotScheme = URLBuilder.scheme(from: Constants.testURL).url?.scheme
         
         // then
-        XCTAssertEqual(
-            gotScheme, expectedScheme,
-            "Expected: \(expectedScheme), but got: \(gotScheme ?? "nil")"
-        )
+        XCTAssertEqual(gotScheme, expectedScheme)
     }
     
     func testUpdateByURLComponents() {
@@ -84,13 +75,13 @@ final class URLBuilderSchemeFunctionalityTests: XCTestCase {
         let expectedScheme = Constants.testURLComponents?.scheme ?? ""
         
         // when
-        let gotScheme = URLBuilder.scheme(from: Constants.testURLComponents).url?.scheme
+        let gotScheme = URLBuilder
+            .scheme(from: Constants.testURLComponents)
+            .urlComponents
+            .scheme
         
         // then
-        XCTAssertEqual(
-            gotScheme, expectedScheme,
-            "Expected: \(expectedScheme), but got: \(gotScheme ?? "nil")"
-        )
+        XCTAssertEqual(gotScheme, expectedScheme)
     }
 
 }

@@ -45,10 +45,7 @@ final class URLBuilderPortFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.port(.test).string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByCustomValue() {
@@ -59,10 +56,7 @@ final class URLBuilderPortFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.port(custom: Constants.testInt).string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByURL() {
@@ -73,10 +67,7 @@ final class URLBuilderPortFunctionalityTests: XCTestCase {
         let gotPort = URLBuilder.port(from: Constants.testURL).url?.port
         
         // then
-        XCTAssertEqual(
-            gotPort, expectedPort,
-            "Expected: \(expectedPort), but got: \(gotPort ?? 0)"
-        )
+        XCTAssertEqual(gotPort, expectedPort)
     }
     
     func testUpdateByURLComponents() {
@@ -84,13 +75,13 @@ final class URLBuilderPortFunctionalityTests: XCTestCase {
         let expectedPort = Constants.testInt
         
         // when
-        let gotPort = URLBuilder.port(from: Constants.testURLComponents).url?.port
+        let gotPort = URLBuilder
+            .port(from: Constants.testURLComponents)
+            .urlComponents
+            .port
         
         // then
-        XCTAssertEqual(
-            gotPort, expectedPort,
-            "Expected: \(expectedPort), but got: \(gotPort ?? 0)"
-        )
+        XCTAssertEqual(gotPort, expectedPort)
     }
     
 }

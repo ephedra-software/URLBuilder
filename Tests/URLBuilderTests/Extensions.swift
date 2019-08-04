@@ -9,7 +9,7 @@ extension URLComponents.User {
 }
 
 extension URLComponents.Password {
-    static let test = URLComponents.Password(rawValue: Constants.testString)
+    static let test = URLComponents.Password(rawValue: Constants.testPassword)
 }
 
 extension URLComponents.Host {

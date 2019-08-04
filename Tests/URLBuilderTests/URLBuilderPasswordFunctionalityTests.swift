@@ -56,7 +56,7 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
         let expectedURLString = "//:" + URLComponents.Password.test.rawValue! + "@"
         
         // when
-        let gotURLString = URLBuilder.password(custom: Constants.testString).string
+        let gotURLString = URLBuilder.password(custom: Constants.testPassword).string
         
         // then
         XCTAssertEqual(
@@ -84,13 +84,13 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
         let expectedPassword = Constants.testURLComponents?.password ?? ""
         
         // when
-        let gotPassword = URLBuilder.password(from: Constants.testURLComponents).url?.password
+        let gotPassword = URLBuilder
+            .password(from: Constants.testURLComponents)
+            .urlComponents
+            .password
         
         // then
-        XCTAssertEqual(
-            gotPassword, expectedPassword,
-            "Expected: \(expectedPassword), but got: \(gotPassword ?? "nil")"
-        )
+        XCTAssertEqual(gotPassword, expectedPassword)
     }
     
 }

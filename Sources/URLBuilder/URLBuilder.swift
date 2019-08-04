@@ -251,6 +251,42 @@ extension URLBuilder: PortFunctionality {
 
 extension URLBuilder: PathFunctionality {
     
+    public static func path(_ path: URLComponents.Path) -> URLBuilder {
+        return URLBuilder().path(path)
+    }
+    
+    public static func path(custom value: URLComponents.Path.RawValue) -> URLBuilder {
+        return URLBuilder().path(custom: value)
+    }
+    
+    public static func path(from url: URL?) -> URLBuilder {
+        return URLBuilder().path(from: url)
+    }
+    
+    public static func path(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().path(from: urlComponents)
+    }
+    
+    public func path(_ path: URLComponents.Path) -> URLBuilder {
+        urlComponents.path = path.rawValue
+        return self
+    }
+    
+    public func path(custom value: URLComponents.Path.RawValue) -> URLBuilder {
+        urlComponents.path = value
+        return self
+    }
+    
+    public func path(from url: URL?) -> URLBuilder {
+        urlComponents.path = url?.path ?? URLComponents.Path.empty.rawValue
+        return self
+    }
+    
+    public func path(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.path = urlComponents?.path ?? URLComponents.Path.empty.rawValue
+        return self
+    }
+    
 }
 
 // MARK: - Query functionality

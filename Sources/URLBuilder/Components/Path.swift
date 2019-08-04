@@ -13,7 +13,7 @@ extension URLComponents {
         
         // MARK: - Nested types
         
-        public typealias RawValue = String?
+        public typealias RawValue = String
         
         // MARK: - Public properties
         
@@ -21,7 +21,7 @@ extension URLComponents {
         
         // MARK: - Public constants
         
-        public static let empty = Path(rawValue: nil)
+        public static let empty = Path(rawValue: "")
         
         // MARK: - Internal constants
         

@@ -45,10 +45,7 @@ final class URLBuilderHostFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.host(.test).string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByCustomValue() {
@@ -59,10 +56,7 @@ final class URLBuilderHostFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.host(custom: Constants.testString).string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByURL() {
@@ -73,10 +67,7 @@ final class URLBuilderHostFunctionalityTests: XCTestCase {
         let gotHost = URLBuilder.host(from: Constants.testURL).url?.host
         
         // then
-        XCTAssertEqual(
-            gotHost, expectedHost,
-            "Expected: \(expectedHost), but got: \(gotHost ?? "nil")"
-        )
+        XCTAssertEqual(gotHost, expectedHost)
     }
     
     func testUpdateByURLComponents() {
@@ -84,13 +75,13 @@ final class URLBuilderHostFunctionalityTests: XCTestCase {
         let expectedHost = Constants.testURLComponents?.host ?? ""
         
         // when
-        let gotHost = URLBuilder.host(from: Constants.testURLComponents).url?.host
+        let gotHost = URLBuilder
+            .host(from: Constants.testURLComponents)
+            .urlComponents
+            .host
         
         // then
-        XCTAssertEqual(
-            gotHost, expectedHost,
-            "Expected: \(expectedHost), but got: \(gotHost ?? "nil")"
-        )
+        XCTAssertEqual(gotHost, expectedHost)
     }
     
 }

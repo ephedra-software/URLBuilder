@@ -45,10 +45,7 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.user(.test).string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByCustomValue() {
@@ -60,10 +57,7 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.user(custom: customValue).string
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByURL() {
@@ -71,13 +65,10 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
         let expectedUser = Constants.testURL?.user ?? ""
         
         // when
-        let gotURLString = URLBuilder.user(from: Constants.testURL).url?.user
+        let gotUser = URLBuilder.user(from: Constants.testURL).url?.user
         
         // then
-        XCTAssertEqual(
-            gotURLString, expectedUser,
-            "Expected: \(expectedUser), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotUser, expectedUser)
     }
     
     func testUpdateByURLComponents() {
@@ -85,13 +76,13 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
         let expectedUser = Constants.testURLComponents?.user ?? ""
         
         // when
-        let gotUser = URLBuilder.user(from: Constants.testURLComponents).url?.user
+        let gotUser = URLBuilder
+            .user(from: Constants.testURLComponents)
+            .urlComponents
+            .user
         
         // then
-        XCTAssertEqual(
-            gotUser, expectedUser,
-            "Expected: \(expectedUser), but got: \(gotUser ?? "nil")"
-        )
+        XCTAssertEqual(gotUser, expectedUser)
     }
     
 }
