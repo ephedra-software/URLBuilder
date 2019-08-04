@@ -299,9 +299,40 @@ extension URLBuilder: QueryFunctionality {
 
 extension URLBuilder: FragmentFunctionality {
     
-//    public func fragment(_ fragment: URLComponents.Fragment) -> Self {
-//        urlComponents.fragment = fragment.rawValue
-//        return self
-//    }
+    public static func fragment(_ fragment: URLComponents.Fragment) -> URLBuilder {
+        return URLBuilder().fragment(fragment)
+    }
+    
+    public static func fragment(custom value: URLComponents.Fragment.RawValue) -> URLBuilder {
+        return URLBuilder().fragment(custom: value)
+    }
+    
+    public static func fragment(from url: URL?) -> URLBuilder {
+        return URLBuilder().fragment(from: url)
+    }
+    
+    public static func fragment(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().fragment(from: urlComponents)
+    }
+    
+    public func fragment(_ fragment: URLComponents.Fragment) -> URLBuilder {
+        urlComponents.fragment = fragment.rawValue
+        return self
+    }
+    
+    public func fragment(custom value: URLComponents.Fragment.RawValue) -> URLBuilder {
+        urlComponents.fragment = value
+        return self
+    }
+    
+    public func fragment(from url: URL?) -> URLBuilder {
+        urlComponents.fragment = url?.fragment
+        return self
+    }
+    
+    public func fragment(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.fragment = urlComponents?.fragment
+        return self
+    }
 
 }
