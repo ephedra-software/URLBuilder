@@ -125,6 +125,42 @@ extension URLBuilder: UserFunctionality {
 
 extension URLBuilder: PasswordFunctionality {
     
+    public static func password(_ password: URLComponents.Password) -> URLBuilder {
+        return URLBuilder().password(password)
+    }
+    
+    public static func password(custom value: URLComponents.Password.RawValue) -> URLBuilder {
+        return URLBuilder().password(custom: value)
+    }
+    
+    public static func password(from url: URL?) -> URLBuilder {
+        return URLBuilder().password(from: url)
+    }
+    
+    public static func password(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().password(from: urlComponents)
+    }
+    
+    public func password(_ password: URLComponents.Password) -> URLBuilder {
+        urlComponents.password = password.rawValue
+        return self
+    }
+    
+    public func password(custom value: URLComponents.Password.RawValue) -> URLBuilder {
+        urlComponents.password = value
+        return self
+    }
+    
+    public func password(from url: URL?) -> URLBuilder {
+        urlComponents.password = url?.password
+        return self
+    }
+    
+    public func password(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.password = urlComponents?.password
+        return self
+    }
+    
 }
 
 // MARK: - Host functionality

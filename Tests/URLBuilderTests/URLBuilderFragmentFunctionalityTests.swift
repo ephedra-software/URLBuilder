@@ -8,7 +8,7 @@ final class URLBuilderFragmentFunctionalityTests: XCTestCase {
     static var allTests = [
         ("testStaticAllocate", testStaticAllocate),
         ("testUpdateByComponent", testUpdateByComponent),
-        ("testUpdateByDefaultValue", testUpdateByDefaultValue),
+        ("testUpdateByCustomValue", testUpdateByCustomValue),
         ("testUpdateByURL", testUpdateByURL),
         ("testUpdateByURLComponents", testUpdateByURLComponents)
     ]
@@ -23,7 +23,7 @@ final class URLBuilderFragmentFunctionalityTests: XCTestCase {
         XCTFail("No implementation")
     }
     
-    func testUpdateByDefaultValue() {
+    func testUpdateByCustomValue() {
         XCTFail("No implementation")
     }
     
