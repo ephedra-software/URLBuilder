@@ -12,6 +12,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(URLBuilderPortFunctionalityTests.allTests),
         testCase(URLBuilderPathFunctionalityTests.allTests),
         testCase(URLBuilderQueryFunctionalityTests.allTests),
+        testCase(URLBuilderQueryItemsFunctionalityTests.allTests),
         testCase(URLBuilderFragmentFunctionalityTests.allTests)
     ]
 }

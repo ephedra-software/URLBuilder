@@ -7,12 +7,8 @@ final class URLBuilderQueryFunctionalityTests: XCTestCase {
     
     static var allTests = [
         ("testStaticAllocate", testStaticAllocate),
-        ("testUpdateByComponents", testUpdateByComponents),
-        ("testUpdateByPairs", testUpdateByPairs),
-        ("testUpdayeByURLQueueItems", testUpdayeByURLQueueItems),
-        ("testUpdateByVariadicComponents", testUpdateByVariadicComponents),
-        ("testUpdateByVariadicPairs", testUpdateByVariadicPairs),
-        ("testUpdayeByVariadicURLQueueItems", testUpdayeByVariadicURLQueueItems),
+        ("testUpdateByComponent", testUpdateByComponent),
+        ("testUpdateByCustomValue", testUpdateByCustomValue),
         ("testUpdateByURL", testUpdateByURL),
         ("testUpdateByURLComponents", testUpdateByURLComponents)
     ]
@@ -20,39 +16,72 @@ final class URLBuilderQueryFunctionalityTests: XCTestCase {
     // MARK: - Tests
     
     func testStaticAllocate() {
-        XCTFail("No implementation")
+        XCTAssertTrue(
+            URLBuilder().query(.test) !== URLBuilder.query(.test),
+            "Something went wrong. Check the initialization in the URLBuilder by scheme component"
+        )
+        
+        XCTAssertTrue(
+            URLBuilder().query(custom: Constants.testString) !== URLBuilder.query(custom: Constants.testString),
+            "Something went wrong. Check the initialization in the URLBuilder by scheme raw value"
+        )
+        
+        XCTAssertTrue(
+            URLBuilder().query(from: Constants.testURL) !== URLBuilder.query(from: Constants.testURL),
+            "Something went wrong. Check the initialization in the URLBuilder by URL"
+        )
+        
+        XCTAssertTrue(
+            URLBuilder().query(from: Constants.testURLComponents) !== URLBuilder.query(from: Constants.testURLComponents),
+            "Something went wrong. Check the initialization in the URLBuilder by URLComponents"
+        )
     }
     
-    func testUpdateByComponents() {
-        XCTFail("No implementation")
+    func testUpdateByComponent() {
+        // given
+        let expectedURLString = "?" + URLComponents.Query.test.rawValue!
+        
+        // when
+        let gotURLString = URLBuilder.query(.test).string
+        
+        // then
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
-    func testUpdateByPairs() {
-        XCTFail("No implementation")
-    }
-    
-    func testUpdayeByURLQueueItems() {
-        XCTFail("No implementation")
-    }
-    
-    func testUpdateByVariadicComponents() {
-        XCTFail("No implementation")
-    }
-    
-    func testUpdateByVariadicPairs() {
-        XCTFail("No implementation")
-    }
-    
-    func testUpdayeByVariadicURLQueueItems() {
-        XCTFail("No implementation")
+    func testUpdateByCustomValue() {
+        // given
+        let expectedURLString = "?" + URLComponents.Query.test.rawValue!
+        
+        // when
+        let gotURLString = URLBuilder.query(custom: Constants.testQuery).string
+        
+        // then
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
     
     func testUpdateByURL() {
-        XCTFail("No implementation")
+        // given
+        let expectedScheme = Constants.testURL?.query ?? ""
+        
+        // when
+        let gotScheme = URLBuilder.query(from: Constants.testURL).url?.query
+        
+        // then
+        XCTAssertEqual(gotScheme, expectedScheme)
     }
     
     func testUpdateByURLComponents() {
-        XCTFail("No implementation")
+        // given
+        let expectedScheme = Constants.testURLComponents?.query ?? ""
+        
+        // when
+        let gotScheme = URLBuilder
+            .query(from: Constants.testURLComponents)
+            .urlComponents
+            .query
+        
+        // then
+        XCTAssertEqual(gotScheme, expectedScheme)
     }
 
 }

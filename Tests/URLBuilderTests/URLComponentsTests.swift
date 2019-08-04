@@ -13,6 +13,7 @@ final class URLComponentsTests: XCTestCase {
         ("testPortCorrectly", testPortCorrectly),
         ("testPathCorrectly", testPathCorrectly),
         ("testQueryCorrectly", testQueryCorrectly),
+        ("testQueryItemsCorrectly", testQueryItemsCorrectly),
         ("testFragmentCorrectly", testFragmentCorrectly)
     ]
     
@@ -23,7 +24,7 @@ final class URLComponentsTests: XCTestCase {
                       "URLComponents.Scheme.type is not .scheme")
         
         XCTAssertTrue(TypeCompare<URLComponents.Scheme.RawValue, String?>.bool,
-                      "URLComponents.Scheme.RawValue is not String")
+                      "URLComponents.Scheme.RawValue is not String?")
         
         XCTAssertEqual(URLComponents.Scheme.test.rawValue, Constants.testString,
                        "Something is wrong with extensibility URLComponents.Scheme")
@@ -34,7 +35,7 @@ final class URLComponentsTests: XCTestCase {
                       "User.type is not .user")
         
         XCTAssertTrue(TypeCompare<URLComponents.User.RawValue, String?>.bool,
-                      "User.RawValue is not String")
+                      "User.RawValue is not String?")
         
         XCTAssertEqual(URLComponents.User.test.rawValue, Constants.testString,
                        "Something is wrong with extensibility URLComponents.User")
@@ -45,7 +46,7 @@ final class URLComponentsTests: XCTestCase {
                       "Password.type is not .password")
         
         XCTAssertTrue(TypeCompare<URLComponents.Password.RawValue, String?>.bool,
-                      "Password.RawValue is not String")
+                      "Password.RawValue is not String?")
         
         XCTAssertEqual(URLComponents.Password.test.rawValue, Constants.testPassword,
                        "Something is wrong with extensibility URLComponents.Password")
@@ -56,7 +57,7 @@ final class URLComponentsTests: XCTestCase {
                       "Host.type is not .host")
         
         XCTAssertTrue(TypeCompare<URLComponents.Host.RawValue, String?>.bool,
-                      "Host.RawValue is not String")
+                      "Host.RawValue is not String?")
         
         XCTAssertEqual(URLComponents.Host.test.rawValue, Constants.testString,
                        "Something is wrong with extensibility URLComponents.Host")
@@ -67,7 +68,7 @@ final class URLComponentsTests: XCTestCase {
                       "Port.type is not .port")
         
         XCTAssertTrue(TypeCompare<URLComponents.Port.RawValue, Int?>.bool,
-                      "Port.RawValue is not Int")
+                      "Port.RawValue is not Int?")
         
         XCTAssertEqual(URLComponents.Port.test.rawValue, Constants.testInt,
                        "Something is wrong with extensibility URLComponents.Port")
@@ -88,11 +89,15 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.Query.type == .query,
                       "Query.type is not .query")
         
-        XCTAssertTrue(TypeCompare<URLComponents.Query.RawValue, URLQueryItem?>.bool,
-                      "Query.RawValue is not URLQueryItem")
+        XCTAssertTrue(TypeCompare<URLComponents.Query.RawValue, String?>.bool,
+                      "Query.RawValue is not String?")
         
-        XCTAssertEqual(URLComponents.Query.test.rawValue, Constants.testQueryItem,
+        XCTAssertEqual(URLComponents.Query.test.rawValue, Constants.testQuery,
                        "Something is wrong with extensibility URLComponents.Query")
+    }
+    
+    func testQueryItemsCorrectly() {
+        XCTFail("No implementation")
     }
     
     func testFragmentCorrectly() {
@@ -100,7 +105,7 @@ final class URLComponentsTests: XCTestCase {
                       "Fragment.type is not .fragment")
         
         XCTAssertTrue(TypeCompare<URLComponents.Fragment.RawValue, String?>.bool,
-                      "Fragment.RawValue is not String")
+                      "Fragment.RawValue is not String?")
         
         XCTAssertEqual(URLComponents.Fragment.test.rawValue, Constants.testString,
                        "Something is wrong with extensibility URLComponents.Fragment")

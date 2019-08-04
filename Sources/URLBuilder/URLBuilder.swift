@@ -293,6 +293,42 @@ extension URLBuilder: PathFunctionality {
 
 extension URLBuilder: QueryFunctionality {
     
+    public static func query(_ query: URLComponents.Query) -> URLBuilder {
+        return URLBuilder().query(query)
+    }
+    
+    public static func query(custom value: URLComponents.Query.RawValue) -> URLBuilder {
+        return URLBuilder().query(custom: value)
+    }
+    
+    public static func query(from url: URL?) -> URLBuilder {
+        return URLBuilder().query(from: url)
+    }
+    
+    public static func query(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().query(from: urlComponents)
+    }
+    
+    public func query(_ query: URLComponents.Query) -> URLBuilder {
+        urlComponents.query = query.rawValue
+        return self
+    }
+    
+    public func query(custom value: URLComponents.Query.RawValue) -> URLBuilder {
+        urlComponents.query = value
+        return self
+    }
+    
+    public func query(from url: URL?) -> URLBuilder {
+        urlComponents.query = url?.query
+        return self
+    }
+    
+    public func query(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.query = urlComponents?.query
+        return self
+    }
+    
 }
 
 // MARK: - Fragment functionality

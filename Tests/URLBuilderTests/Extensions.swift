@@ -25,7 +25,7 @@ extension URLComponents.Path {
 }
 
 extension URLComponents.Query {
-    static let test = URLComponents.Query(rawValue: Constants.testQueryItem)
+    static let test = URLComponents.Query(rawValue: Constants.testQuery)
 }
 
 extension URLComponents.Fragment {
