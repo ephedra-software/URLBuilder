@@ -209,6 +209,42 @@ extension URLBuilder: HostFunctionality {
 
 extension URLBuilder: PortFunctionality {
     
+    public static func port(_ port: URLComponents.Port) -> URLBuilder {
+        return URLBuilder().port(port)
+    }
+    
+    public static func port(custom value: URLComponents.Port.RawValue) -> URLBuilder {
+        return URLBuilder().port(custom: value)
+    }
+    
+    public static func port(from url: URL?) -> URLBuilder {
+        return URLBuilder().host(from: url)
+    }
+    
+    public static func port(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().password(from: urlComponents)
+    }
+    
+    public func port(_ port: URLComponents.Port) -> URLBuilder {
+        urlComponents.port = port.rawValue
+        return self
+    }
+    
+    public func port(custom value: URLComponents.Port.RawValue) -> URLBuilder {
+        urlComponents.port = value
+        return self
+    }
+    
+    public func port(from url: URL?) -> URLBuilder {
+        urlComponents.port = url?.port
+        return self
+    }
+    
+    public func port(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.port = urlComponents?.port
+        return self
+    }
+    
 }
 
 // MARK: - Path functionality

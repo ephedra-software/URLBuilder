@@ -67,29 +67,29 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
     
     func testUpdateByURL() {
         // given
-        let expectedURLString = Constants.testURL?.password ?? ""
+        let expectedPassword = Constants.testURL?.password ?? ""
         
         // when
-        let gotURLString = URLBuilder.password(from: Constants.testURL).url?.password
+        let gotPassword = URLBuilder.password(from: Constants.testURL).url?.password
         
         // then
         XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+            gotPassword, expectedPassword,
+            "Expected: \(expectedPassword), but got: \(gotPassword ?? "nil")"
         )
     }
     
     func testUpdateByURLComponents() {
         // given
-        let expectedURLString = Constants.testURLComponents?.password ?? ""
+        let expectedPassword = Constants.testURLComponents?.password ?? ""
         
         // when
-        let gotURLString = URLBuilder.password(from: Constants.testURLComponents).url?.password
+        let gotPassword = URLBuilder.password(from: Constants.testURLComponents).url?.password
         
         // then
         XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+            gotPassword, expectedPassword,
+            "Expected: \(expectedPassword), but got: \(gotPassword ?? "nil")"
         )
     }
     

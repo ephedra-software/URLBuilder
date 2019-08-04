@@ -67,29 +67,29 @@ final class URLBuilderHostFunctionalityTests: XCTestCase {
     
     func testUpdateByURL() {
         // given
-        let expectedURLString = Constants.testURL?.host ?? ""
+        let expectedHost = Constants.testURL?.host ?? ""
         
         // when
-        let gotURLString = URLBuilder.host(from: Constants.testURL).url?.host
+        let gotHost = URLBuilder.host(from: Constants.testURL).url?.host
         
         // then
         XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+            gotHost, expectedHost,
+            "Expected: \(expectedHost), but got: \(gotHost ?? "nil")"
         )
     }
     
     func testUpdateByURLComponents() {
         // given
-        let expectedURLString = Constants.testURLComponents?.host ?? ""
+        let expectedHost = Constants.testURLComponents?.host ?? ""
         
         // when
-        let gotURLString = URLBuilder.host(from: Constants.testURLComponents).url?.host
+        let gotHost = URLBuilder.host(from: Constants.testURLComponents).url?.host
         
         // then
         XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString ?? "nil"), but got: \(gotURLString ?? "nil")"
+            gotHost, expectedHost,
+            "Expected: \(expectedHost), but got: \(gotHost ?? "nil")"
         )
     }
     
