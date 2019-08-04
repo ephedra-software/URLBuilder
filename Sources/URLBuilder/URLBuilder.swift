@@ -218,11 +218,11 @@ extension URLBuilder: PortFunctionality {
     }
     
     public static func port(from url: URL?) -> URLBuilder {
-        return URLBuilder().host(from: url)
+        return URLBuilder().port(from: url)
     }
     
     public static func port(from urlComponents: URLComponents?) -> URLBuilder {
-        return URLBuilder().password(from: urlComponents)
+        return URLBuilder().port(from: urlComponents)
     }
     
     public func port(_ port: URLComponents.Port) -> URLBuilder {
