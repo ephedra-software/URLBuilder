@@ -68,7 +68,7 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
     
     func testUpdateByURL() {
         // given
-        let expectedURLString = Constants.testURL?.user
+        let expectedURLString = Constants.testURL?.user ?? ""
         
         // when
         let gotURLString = URLBuilder.user(from: Constants.testURL).url?.user
@@ -82,7 +82,7 @@ final class URLBuilderUserFunctionalityTests: XCTestCase {
     
     func testUpdateByURLComponents() {
         // given
-        let expectedURLString = Constants.testURLComponents?.user
+        let expectedURLString = Constants.testURLComponents?.user ?? ""
         
         // when
         let gotURLString = URLBuilder.user(from: Constants.testURLComponents).url?.user

@@ -167,6 +167,42 @@ extension URLBuilder: PasswordFunctionality {
 
 extension URLBuilder: HostFunctionality {
     
+    public static func host(_ host: URLComponents.Host) -> URLBuilder {
+        return URLBuilder().host(host)
+    }
+    
+    public static func host(custom value: URLComponents.Host.RawValue) -> URLBuilder {
+        return URLBuilder().host(custom: value)
+    }
+    
+    public static func host(from url: URL?) -> URLBuilder {
+        return URLBuilder().host(from: url)
+    }
+    
+    public static func host(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().host(from: urlComponents)
+    }
+    
+    public func host(_ host: URLComponents.Host) -> URLBuilder {
+        urlComponents.host = host.rawValue
+        return self
+    }
+    
+    public func host(custom value: URLComponents.Host.RawValue) -> URLBuilder {
+        urlComponents.host = value
+        return self
+    }
+    
+    public func host(from url: URL?) -> URLBuilder {
+        urlComponents.host = url?.host
+        return self
+    }
+    
+    public func host(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.host = urlComponents?.host
+        return self
+    }
+    
 }
 
 // MARK: - Port functionality

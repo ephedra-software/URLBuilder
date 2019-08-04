@@ -67,7 +67,7 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
     
     func testUpdateByURL() {
         // given
-        let expectedURLString = Constants.testURL?.password
+        let expectedURLString = Constants.testURL?.password ?? ""
         
         // when
         let gotURLString = URLBuilder.password(from: Constants.testURL).url?.password
@@ -81,7 +81,7 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
     
     func testUpdateByURLComponents() {
         // given
-        let expectedURLString = Constants.testURLComponents?.password
+        let expectedURLString = Constants.testURLComponents?.password ?? ""
         
         // when
         let gotURLString = URLBuilder.password(from: Constants.testURLComponents).url?.password
