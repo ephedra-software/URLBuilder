@@ -22,7 +22,7 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.Scheme.type == .scheme,
                       "URLComponents.Scheme.type is not .scheme")
         
-        XCTAssertTrue(TypeCompare<URLComponents.Scheme.RawValue, String>.bool,
+        XCTAssertTrue(TypeCompare<URLComponents.Scheme.RawValue, String?>.bool,
                       "URLComponents.Scheme.RawValue is not String")
         
         XCTAssertEqual(URLComponents.Scheme.test.rawValue, Constants.testString,
@@ -33,7 +33,7 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.User.type == .user,
                       "User.type is not .user")
         
-        XCTAssertTrue(TypeCompare<URLComponents.User.RawValue, String>.bool,
+        XCTAssertTrue(TypeCompare<URLComponents.User.RawValue, String?>.bool,
                       "User.RawValue is not String")
         
         XCTAssertEqual(URLComponents.User.test.rawValue, Constants.testString,
@@ -44,10 +44,10 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.Password.type == .password,
                       "Password.type is not .password")
         
-        XCTAssertTrue(TypeCompare<URLComponents.Password.RawValue, String>.bool,
+        XCTAssertTrue(TypeCompare<URLComponents.Password.RawValue, String?>.bool,
                       "Password.RawValue is not String")
         
-        XCTAssertEqual(URLComponents.Password.test.rawValue, Constants.testString,
+        XCTAssertEqual(URLComponents.Password.test.rawValue, Constants.testPassword,
                        "Something is wrong with extensibility URLComponents.Password")
     }
     
@@ -55,7 +55,7 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.Host.type == .host,
                       "Host.type is not .host")
         
-        XCTAssertTrue(TypeCompare<URLComponents.Host.RawValue, String>.bool,
+        XCTAssertTrue(TypeCompare<URLComponents.Host.RawValue, String?>.bool,
                       "Host.RawValue is not String")
         
         XCTAssertEqual(URLComponents.Host.test.rawValue, Constants.testString,
@@ -66,7 +66,7 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.Port.type == .port,
                       "Port.type is not .port")
         
-        XCTAssertTrue(TypeCompare<URLComponents.Port.RawValue, Int>.bool,
+        XCTAssertTrue(TypeCompare<URLComponents.Port.RawValue, Int?>.bool,
                       "Port.RawValue is not Int")
         
         XCTAssertEqual(URLComponents.Port.test.rawValue, Constants.testInt,
@@ -88,7 +88,7 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.Query.type == .query,
                       "Query.type is not .query")
         
-        XCTAssertTrue(TypeCompare<URLComponents.Query.RawValue, URLQueryItem>.bool,
+        XCTAssertTrue(TypeCompare<URLComponents.Query.RawValue, URLQueryItem?>.bool,
                       "Query.RawValue is not URLQueryItem")
         
         XCTAssertEqual(URLComponents.Query.test.rawValue, Constants.testQueryItem,
@@ -99,7 +99,7 @@ final class URLComponentsTests: XCTestCase {
         XCTAssertTrue(URLComponents.Fragment.type == .fragment,
                       "Fragment.type is not .fragment")
         
-        XCTAssertTrue(TypeCompare<URLComponents.Fragment.RawValue, String>.bool,
+        XCTAssertTrue(TypeCompare<URLComponents.Fragment.RawValue, String?>.bool,
                       "Fragment.RawValue is not String")
         
         XCTAssertEqual(URLComponents.Fragment.test.rawValue, Constants.testString,
