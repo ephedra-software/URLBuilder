@@ -28,6 +28,10 @@ extension URLComponents.Query {
     static let test = URLComponents.Query(rawValue: Constants.testQuery)
 }
 
+extension URLComponents.QueryItems {
+    static let test = URLComponents.QueryItems(rawValue: Constants.testQueryItems)
+}
+
 extension URLComponents.Fragment {
     static let test = URLComponents.Fragment(rawValue: Constants.testString)
 }

@@ -9,12 +9,6 @@ import Foundation
 
 public protocol QueryFunctionality {
     
-    //    func query(items: (name: String, value: String?)...) -> Self
-    //    func query(items: URLQueryItem...) -> Self
-    //    func query(_ query: Query) -> Self
-    //    func query(from url: URL?) -> Self
-    //    func query(from urlComponents: URLComponents) -> Self
-    
     static func query(_ query: URLComponents.Query) -> URLBuilder
     static func query(custom value: URLComponents.Query.RawValue) -> URLBuilder
     static func query(from url: URL?) -> URLBuilder

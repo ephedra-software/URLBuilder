@@ -97,7 +97,14 @@ final class URLComponentsTests: XCTestCase {
     }
     
     func testQueryItemsCorrectly() {
-        XCTFail("No implementation")
+        XCTAssertTrue(URLComponents.QueryItems.type == .queryItems,
+                      "Query.type is not .queryItems")
+        
+        XCTAssertTrue(TypeCompare<URLComponents.QueryItems.RawValue, [URLQueryItem]?>.bool,
+                      "Query.RawValue is not [URLQueryItem]?")
+        
+        XCTAssertEqual(URLComponents.QueryItems.test.rawValue, Constants.testQueryItems,
+                       "Something is wrong with extensibility URLComponents.QueryItems")
     }
     
     func testFragmentCorrectly() {

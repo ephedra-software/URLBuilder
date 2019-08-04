@@ -331,6 +331,58 @@ extension URLBuilder: QueryFunctionality {
     
 }
 
+// MARK: - Query items functionality
+
+extension URLBuilder: QueryItemsFunctionality {
+    
+    public static func queryItems(_ items: URLComponents.QueryItems) -> URLBuilder {
+        return URLBuilder().queryItems(items)
+    }
+    
+    public static func queryItems(custom value: URLComponents.QueryItems.RawValue) -> URLBuilder {
+        return URLBuilder().queryItems(custom: value)
+    }
+    
+    public static func queryItems(from urlComponents: URLComponents?) -> URLBuilder {
+        return URLBuilder().queryItems(from: urlComponents)
+    }
+    
+    public static func query(items: URLComponents.Query.Item...) -> URLBuilder {
+        return URLBuilder().query(items: items)
+    }
+    
+    public static func query(items: [URLComponents.Query.Item]) -> URLBuilder {
+        return URLBuilder().query(items: items)
+    }
+    
+    
+    public func queryItems(_ items: URLComponents.QueryItems) -> URLBuilder {
+        urlComponents.queryItems = items.rawValue
+        return self
+    }
+    
+    public func queryItems(custom value: URLComponents.QueryItems.RawValue) -> URLBuilder {
+        urlComponents.queryItems = value
+        return self
+    }
+    
+    public func queryItems(from urlComponents: URLComponents?) -> URLBuilder {
+        self.urlComponents.queryItems = urlComponents?.queryItems
+        return self
+    }
+    
+    public func query(items: URLComponents.Query.Item...) -> URLBuilder {
+        return query(items: items)
+    }
+    
+    public func query(items: [URLComponents.Query.Item]) -> URLBuilder {
+        let queryItems = items.map { URLQueryItem(name: $0.name, value: $0.value) }
+        urlComponents.queryItems = queryItems
+        return self
+    }
+    
+}
+
 // MARK: - Fragment functionality
 
 extension URLBuilder: FragmentFunctionality {
