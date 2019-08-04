@@ -6,7 +6,7 @@ enum Constants {
     static let testPassword = UUID().uuidString
     static let testQuery = "tag=networking&order=newest"
     static let testQueryItem = URLQueryItem(name: Constants.testString, value: nil)
-    static let testQueryItemPairs = (("tag", "networking"), ("order", "newest"))
+    static let testQueryItemPairs = (("tag", Optional("networking")), ("order", Optional("newest")))
     static let testQueryItems = [
         URLQueryItem(name: "tag", value: "networking"),
         URLQueryItem(name: "order", value: "newest")
