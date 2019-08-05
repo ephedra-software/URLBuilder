@@ -44,10 +44,7 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.password(.test).string
 
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
 
     func testUpdateByCustomValue() {
@@ -58,10 +55,7 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
         let gotURLString = URLBuilder.password(custom: Constants.testPassword).string
 
         // then
-        XCTAssertEqual(
-            gotURLString, expectedURLString,
-            "Expected: \(expectedURLString), but got: \(gotURLString ?? "nil")"
-        )
+        XCTAssertEqual(gotURLString, expectedURLString)
     }
 
     func testUpdateByURL() {
@@ -72,10 +66,7 @@ final class URLBuilderPasswordFunctionalityTests: XCTestCase {
         let gotPassword = URLBuilder.password(from: Constants.testURL).url?.password
 
         // then
-        XCTAssertEqual(
-            gotPassword, expectedPassword,
-            "Expected: \(expectedPassword), but got: \(gotPassword ?? "nil")"
-        )
+        XCTAssertEqual(gotPassword, expectedPassword)
     }
 
     func testUpdateByURLComponents() {
