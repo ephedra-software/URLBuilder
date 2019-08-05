@@ -8,7 +8,6 @@
 import Foundation
 
 public protocol FragmentFunctionality {
-    
     static func fragment(_ fragment: URLComponents.Fragment) -> URLBuilder
     static func fragment(custom value: URLComponents.Fragment.RawValue) -> URLBuilder
     static func fragment(from url: URL?) -> URLBuilder
@@ -18,5 +17,4 @@ public protocol FragmentFunctionality {
     func fragment(custom value: URLComponents.Fragment.RawValue) -> URLBuilder
     func fragment(from url: URL?) -> URLBuilder
     func fragment(from urlComponents: URLComponents?) -> URLBuilder
-    
 }

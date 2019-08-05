@@ -8,7 +8,6 @@
 import Foundation
 
 public protocol UserFunctionality {
-
     static func user(_ user: URLComponents.User) -> URLBuilder
     static func user(custom value: URLComponents.User.RawValue) -> URLBuilder
     static func user(from url: URL?) -> URLBuilder
@@ -18,5 +17,4 @@ public protocol UserFunctionality {
     func user(custom value: URLComponents.User.RawValue) -> URLBuilder
     func user(from url: URL?) -> URLBuilder
     func user(from urlComponents: URLComponents?) -> URLBuilder
-
 }

@@ -8,7 +8,6 @@
 import Foundation
 
 public protocol HostFunctionality {
-    
     static func host(_ host: URLComponents.Host) -> URLBuilder
     static func host(custom value: URLComponents.Host.RawValue) -> URLBuilder
     static func host(from url: URL?) -> URLBuilder
@@ -18,5 +17,4 @@ public protocol HostFunctionality {
     func host(custom value: URLComponents.Host.RawValue) -> URLBuilder
     func host(from url: URL?) -> URLBuilder
     func host(from urlComponents: URLComponents?) -> URLBuilder
-    
 }

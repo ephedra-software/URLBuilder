@@ -8,17 +8,15 @@
 import Foundation
 
 public protocol URLBuilderProtocol: class {
-    
     var urlComponents: URLComponents { get }
-    
+
     @inlinable
     var url: URL? { get }
-    
+
     @available(OSX 10.10, iOS 8.0, *)
     @inlinable
     var string: String? { get }
-    
+
     @inlinable
     func url(relativeTo base: URL?) -> URL?
-    
 }
