@@ -331,7 +331,7 @@ extension URLBuilder: QueryItemsFunctionality {
     }
 
     public static func query(items: URLComponents.Query.Item...) -> URLBuilder {
-        return URLBuilder().query(items: items)
+        return URLBuilder.query(items: items)
     }
 
     public static func query(items: [URLComponents.Query.Item]) -> URLBuilder {
