@@ -5,8 +5,6 @@ trigger:
 pool:
   vmImage: 'macos-latest'
 
-variables:
-
 steps:
 
 - script: brew install swiftlint
