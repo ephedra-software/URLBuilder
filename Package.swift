@@ -6,15 +6,18 @@ let package = Package(
     products: [
         .library(
             name: "URLBuilder",
-            targets: ["URLBuilder"]),
+            targets: ["URLBuilder"]
+        )
     ],
     dependencies: [],
     targets: [
         .target(
             name: "URLBuilder",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "URLBuilderTests",
-            dependencies: ["URLBuilder"]),
+            dependencies: ["URLBuilder"]
+        )
     ]
 )

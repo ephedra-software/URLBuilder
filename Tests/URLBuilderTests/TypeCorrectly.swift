@@ -9,12 +9,12 @@ import Foundation
 
 struct TypeCorrectly<ExplicitType> {
     private init() {}
-    
-    static func compare(with object: ExplicitType) -> Bool {
+
+    static func compare(with _: ExplicitType) -> Bool {
         return true
     }
-    
-    static func compare<T>(with object: T) -> Bool {
+
+    static func compare<T>(with _: T) -> Bool {
         return false
     }
 }
