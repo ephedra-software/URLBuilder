@@ -6,7 +6,7 @@ pool:
   vmImage: 'macos-latest'
 
 variables:
-  CODECOV_TOKEN: $(CODECOV_UPLOAD_TOKEN)
+  TOKEN: $(CODECOV_UPLOAD_TOKEN)
 
 steps:
 
@@ -22,7 +22,7 @@ steps:
 - script: set -o pipefail && xcodebuild -scheme URLBuilder-Package -enableCodeCoverage YES -derivedDataPath .build/derivedData clean build test | xcpretty -r junit
   displayName: 'Run tests'
 
-- script: "bash <(curl -s https://codecov.io/bash) -J '^URLBuilder$' -D .build/derivedData"
+- script: "bash <(curl -s https://codecov.io/bash) -J '^URLBuilder$' -D .build/derivedData -t ${TOKEN}"
   displayName: 'Upload test results to Codecov service'
 
 - task: PublishTestResults@2
