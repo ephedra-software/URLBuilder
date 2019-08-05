@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name             = 'URLBuilder'
-    spec.version          = '1.0.2'
+    spec.version          = '1.0.3'
     spec.summary          = 'Simple abstraction for URLComponents for ease to use'
     spec.homepage         = 'https://github.com/ephedra-software/URLBuilder'
     spec.license          = { :type => 'MIT', :file => 'LICENSE' }
