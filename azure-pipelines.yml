@@ -5,6 +5,9 @@ trigger:
 pool:
   vmImage: 'macos-latest'
 
+variables:
+  CODECOV_TOKEN: $(CODECOV_TOKEN)
+
 steps:
 
 - script: brew install swiftlint
