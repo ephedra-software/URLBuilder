@@ -13,7 +13,7 @@ extension URLComponents {
         
         // MARK: - Nested types
         
-        public typealias RawValue = String
+        public typealias RawValue = String?
         
         // MARK: - Public properties
         
@@ -21,6 +21,7 @@ extension URLComponents {
         
         // MARK: - Public constants
         
+        public static let empty = Scheme(rawValue: nil)
         public static let http = Scheme(rawValue: "http")
         public static let https = Scheme(rawValue: "https")
         public static let ws = Scheme(rawValue: "ws")

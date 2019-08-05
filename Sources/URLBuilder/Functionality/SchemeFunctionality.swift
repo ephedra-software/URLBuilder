@@ -9,9 +9,14 @@ import Foundation
 
 public protocol SchemeFunctionality {
     
-    //    func scheme(_ scheme: Scheme) -> Self
-    //    func scheme(_ value: Scheme.RawValue) -> Self
-    //    func scheme(from url: URL?) -> Self
-    //    func scheme(from urlComponents: URLComponents) -> Self
+    static func scheme(_ scheme: URLComponents.Scheme) -> URLBuilder
+    static func scheme(custom value: URLComponents.Scheme.RawValue) -> URLBuilder
+    static func scheme(from url: URL?) -> URLBuilder
+    static func scheme(from urlComponents: URLComponents?) -> URLBuilder
     
+    func scheme(_ scheme: URLComponents.Scheme) -> URLBuilder
+    func scheme(custom value: URLComponents.Scheme.RawValue) -> URLBuilder
+    func scheme(from url: URL?) -> URLBuilder
+    func scheme(from urlComponents: URLComponents?) -> URLBuilder
+
 }

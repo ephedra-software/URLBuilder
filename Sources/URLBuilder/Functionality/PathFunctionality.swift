@@ -9,9 +9,14 @@ import Foundation
 
 public protocol PathFunctionality {
     
-    //    func path(_ path: Path) -> Self
-    //    func path(_ value: Path.RawValue) -> Self
-    //    func path(from url: URL?) -> Self
-    //    func path(from urlComponents: URLComponents) -> Self
+    static func path(_ path: URLComponents.Path) -> URLBuilder
+    static func path(custom value: URLComponents.Path.RawValue) -> URLBuilder
+    static func path(from url: URL?) -> URLBuilder
+    static func path(from urlComponents: URLComponents?) -> URLBuilder
+    
+    func path(_ path: URLComponents.Path) -> URLBuilder
+    func path(custom value: URLComponents.Path.RawValue) -> URLBuilder
+    func path(from url: URL?) -> URLBuilder
+    func path(from urlComponents: URLComponents?) -> URLBuilder
     
 }

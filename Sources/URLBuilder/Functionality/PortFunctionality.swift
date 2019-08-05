@@ -9,9 +9,14 @@ import Foundation
 
 public protocol PortFunctionality {
     
-    //    func port(_ port: Port) -> Self
-    //    func port(_ value: Port.RawValue) -> Self
-    //    func port(from url: URL?) -> Self
-    //    func port(from urlComponents: URLComponents) -> Self
+    static func port(_ port: URLComponents.Port) -> URLBuilder
+    static func port(custom value: URLComponents.Port.RawValue) -> URLBuilder
+    static func port(from url: URL?) -> URLBuilder
+    static func port(from urlComponents: URLComponents?) -> URLBuilder
+
+    func port(_ port: URLComponents.Port) -> URLBuilder
+    func port(custom value: URLComponents.Port.RawValue) -> URLBuilder
+    func port(from url: URL?) -> URLBuilder
+    func port(from urlComponents: URLComponents?) -> URLBuilder
     
 }

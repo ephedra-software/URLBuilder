@@ -9,9 +9,14 @@ import Foundation
 
 public protocol PasswordFunctionality {
     
-    //    func password(_ password: Password) -> Self
-    //    func password(_ value: Password.RawValue) -> Self
-    //    func password(from url: URL?) -> Self
-    //    func password(from urlComponents: URLComponents) -> Self
+    static func password(_ password: URLComponents.Password) -> URLBuilder
+    static func password(custom value: URLComponents.Password.RawValue) -> URLBuilder
+    static func password(from url: URL?) -> URLBuilder
+    static func password(from urlComponents: URLComponents?) -> URLBuilder
+    
+    func password(_ password: URLComponents.Password) -> URLBuilder
+    func password(custom value: URLComponents.Password.RawValue) -> URLBuilder
+    func password(from url: URL?) -> URLBuilder
+    func password(from urlComponents: URLComponents?) -> URLBuilder
     
 }

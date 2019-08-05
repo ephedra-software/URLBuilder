@@ -13,11 +13,16 @@ extension URLComponents {
         
         // MARK: - Nested types
         
-        public typealias RawValue = URLQueryItem
+        public typealias RawValue = String?
+        public typealias Item = (name: String, value: String?)
         
         // MARK: - Public properties
         
         public let rawValue: RawValue
+        
+        // MARK: - Public constants
+        
+        public static let empty = Query(rawValue: nil)
         
         // MARK: - Internal constants
         
@@ -28,13 +33,7 @@ extension URLComponents {
         public init(rawValue: RawValue) {
             self.rawValue = rawValue
         }
-        
-        // MARK: - Public methods
-        
-        static func item(name: String, value: String?) -> Query {
-            return Query(rawValue: URLQueryItem(name: name, value: value))
-        }
-        
+
     }
     
 }

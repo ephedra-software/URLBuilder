@@ -15,5 +15,6 @@ internal enum URLComponentType {
     case port
     case path
     case query
+    case queryItems
     case fragment
 }

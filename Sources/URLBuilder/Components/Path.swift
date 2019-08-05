@@ -19,6 +19,10 @@ extension URLComponents {
         
         public let rawValue: RawValue
         
+        // MARK: - Public constants
+        
+        public static let empty = Path(rawValue: "")
+        
         // MARK: - Internal constants
         
         internal static let type: URLComponentType = .path
