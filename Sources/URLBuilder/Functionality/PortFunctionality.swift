@@ -8,7 +8,6 @@
 import Foundation
 
 public protocol PortFunctionality {
-    
     static func port(_ port: URLComponents.Port) -> URLBuilder
     static func port(custom value: URLComponents.Port.RawValue) -> URLBuilder
     static func port(from url: URL?) -> URLBuilder
@@ -18,5 +17,4 @@ public protocol PortFunctionality {
     func port(custom value: URLComponents.Port.RawValue) -> URLBuilder
     func port(from url: URL?) -> URLBuilder
     func port(from urlComponents: URLComponents?) -> URLBuilder
-    
 }

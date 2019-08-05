@@ -8,7 +8,6 @@
 import Foundation
 
 public protocol QueryFunctionality {
-    
     static func query(_ query: URLComponents.Query) -> URLBuilder
     static func query(custom value: URLComponents.Query.RawValue) -> URLBuilder
     static func query(from url: URL?) -> URLBuilder
@@ -18,5 +17,4 @@ public protocol QueryFunctionality {
     func query(custom value: URLComponents.Query.RawValue) -> URLBuilder
     func query(from url: URL?) -> URLBuilder
     func query(from urlComponents: URLComponents?) -> URLBuilder
-    
 }
