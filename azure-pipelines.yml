@@ -6,7 +6,7 @@ pool:
   vmImage: 'macos-latest'
 
 variables:
-  CODECOV_TOKEN: $(CODECOV_TOKEN)
+  CODECOV_TOKEN: $(CODECOV_UPLOAD_TOKEN)
 
 steps:
 
