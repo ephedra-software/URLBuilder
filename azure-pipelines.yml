@@ -10,7 +10,7 @@ steps:
 - script: swift package generate-xcodeproj
   displayName: 'Create XcodeProject file'
 
-- script: xcodebuild -scheme URLBuilder-Package clean build test | xcpretty -r junit
+- script: set -o pipefail && xcodebuild -scheme URLBuilder-Package clean build test | xcpretty -r junit
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
@@ -18,3 +18,4 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '$(System.DefaultWorkingDirectory)/build/reports/junit.xml'
+  condition: succeededOrFailed()
