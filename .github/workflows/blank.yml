@@ -33,4 +33,4 @@ jobs:
     - name: Upload test results to Codecov service
       run: "bash <(curl -s https://codecov.io/bash) -J '^URLBuilder$' -D .build/derivedData -t $(CODECOV_UPLOAD_TOKEN)"
       env:
-        CODECOV_UPLOAD_TOKEN: ${{ secrets.CODECOV_UPLOAD_TOKEN }}
+        CODECOV_UPLOAD_TOKEN: ${{ secrets.CODE_COVERAGE_TOKEN }}
