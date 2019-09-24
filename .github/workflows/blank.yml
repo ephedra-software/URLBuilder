@@ -31,6 +31,6 @@ jobs:
       run: set -o pipefail && xcodebuild -scheme URLBuilder-Package -enableCodeCoverage YES -derivedDataPath .build/derivedData clean build test | xcpretty -r junit
       
     - name: Upload test results to Codecov service
-      run: "bash <(curl -s https://codecov.io/bash) -J '^URLBuilder$' -D .build/derivedData -t $(CODECOV_UPLOAD_TOKEN)"
+      run: "bash <(curl -s https://codecov.io/bash) -J '^URLBuilder$' -D .build/derivedData -t $CODECOV_UPLOAD_TOKEN"
       env:
         CODECOV_UPLOAD_TOKEN: ${{ secrets.CODE_COVERAGE_TOKEN }}
