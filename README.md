@@ -1,4 +1,4 @@
-# URLBuilder [![Build Status](https://dev.azure.com/ksaltykov0246/URLBuilder/_apis/build/status/ephedra-software.URLBuilder?branchName=master)](https://dev.azure.com/ksaltykov0246/URLBuilder/_build/latest?definitionId=4&branchName=master) [![Version](https://img.shields.io/cocoapods/v/URLBuilder.svg?style=flat)](https://cocoapods.org/pods/URLBuilder) [![codecov](https://codecov.io/gh/ephedra-software/URLBuilder/branch/master/graph/badge.svg)](https://codecov.io/gh/ephedra-software/URLBuilder)
+# URLBuilder [![Actions Status](https://github.com/ephedra-software/URLBuilder/workflows/CI/badge.svg)](https://github.com/ephedra-software/URLBuilder/actions) [![Version](https://img.shields.io/cocoapods/v/URLBuilder.svg?style=flat)](https://cocoapods.org/pods/URLBuilder) [![codecov](https://codecov.io/gh/ephedra-software/URLBuilder/branch/master/graph/badge.svg)](https://codecov.io/gh/ephedra-software/URLBuilder)
 
 Simple abstraction for URLComponents for ease to use
 
