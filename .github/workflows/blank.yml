@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_requrest:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Installing SwiftLint to runner
+      run: brew install swiftlint
+    
+    - name: Create XcodeProject file
+      run: swift package generate-xcodeproj
+    
+    - name: [Linter] SwiftLint
+      run: swiftlint
+      
+    - name: Run tests
+      run: set -o pipefail && xcodebuild -scheme URLBuilder-Package -enableCodeCoverage YES -derivedDataPath .build/derivedData clean build test | xcpretty -r junit
