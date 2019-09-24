@@ -24,7 +24,7 @@ jobs:
     - name: Create XcodeProject file
       run: swift package generate-xcodeproj
     
-    - name: [Linter] SwiftLint
+    - name: SwiftLint
       run: swiftlint
       
     - name: Run tests
